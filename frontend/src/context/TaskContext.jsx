@@ -3,7 +3,7 @@ import React, { createContext, useState, useEffect, useContext, useCallback } fr
 const TaskContext = createContext();
 
 const API_BASE = "https://task-tracker-9nop.onrender.com/api";
-const API_URL = `${API_BASE}/api/tasks`;
+const API_URL = `${API_BASE}/tasks`;
 
 export const TaskProvider = ({ children, token }) => {
     const [tasks, setTasks] = useState([]);
