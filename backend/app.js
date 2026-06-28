@@ -7,13 +7,22 @@ const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Mount auth routes
+// Health check route
+app.get("/", (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "Task Tracker Backend is Running 🚀"
+    });
+});
+
+// Auth routes
 app.use("/api/auth", authRoutes);
 
-// Mount task routes (JWT Protected)
+// Task routes (Protected)
 app.use("/api/tasks", protect, taskRoutes);
 
 // Global error handler
