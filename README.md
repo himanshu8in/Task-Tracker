@@ -1,131 +1,243 @@
-# FocusFlow — MERN Stack Task Tracker
+# 🚀 FocusFlow - MERN Task Tracker
 
-A full-stack project tracking and task management web application built using the MERN (MongoDB, Express, React, Node.js) stack. It features a glassmorphic interface, dual layouts (Kanban board with drag-and-drop, and structured list view), interactive visual statistics, sorting, multi-layered filtering, inline form validation, and real-time toast notifications.
+A modern and responsive Task Tracker web application built using the **MERN Stack**. It allows users to securely manage their daily tasks with authentication, task prioritization, and real-time CRUD operations.
 
----
+## 🌐 Live Demo
 
-## Technical Stack & Features
-
-- **Frontend**: React.js (Vite, Context API for state management, CSS variables, and Lucide React icons).
-- **Backend**: Node.js + Express.js REST API with modular controllers, routes, and centralized error handler middleware.
-- **Database**: MongoDB Atlas via Mongoose ORM.
-- **Key Features**:
-  - **Kanban Board layout**: Drag-and-drop support to instantly transition tasks between Pending, In Progress, and Completed.
-  - **List View layout**: Tabular list layout with custom checkboxes for fast completion toggles.
-  - **Interactive Analytics Panel**: Real-time cards calculating total tasks, completion percentage (linear progress bar), overdue count (turns red with alert indicator), and ongoing tasks.
-  - **Rich Controls**: Instant query search, priority filtering, status filtering, and sorting (by Date Created, Due Date, Alphabetical, or Priority) with ascending/descending toggles.
-  - **Dual Themes**: Smooth dark and light mode switching via CSS variable transitions.
-  - **Robust Validations**: Enforced frontend input rules and Mongoose database constraints.
+- **Frontend:** https://task-tracker-phi-teal.vercel.app
+- **Backend API:** https://task-tracker-9nop.onrender.com
 
 ---
 
-## Workspace Structure
+## 📌 Features
 
-```text
-Task tracker/
-├── backend/
-│   ├── config/             # Database connection setup
-│   ├── controllers/        # Express request handler controllers (CRUD, search, sort, filter)
-│   ├── middleware/         # Centralized error handler
-│   ├── models/             # Mongoose Task Schema and validations
-│   ├── routes/             # Express task router endpoints
-│   ├── server.js           # Server runner
-│   └── app.js              # Express app setup and middleware routing
-└── frontend/
-    ├── public/             # Static assets
-    └── src/
-        ├── components/     # DashboardStats, KanbanBoard, TaskCard, TaskFormModal, Toast
-        ├── context/        # TaskContext (Global React state & API requests)
-        ├── App.jsx         # Layout assembler and controls header
-        ├── index.css       # Custom glassmorphic styling system
-        └── main.jsx        # App mounting point
+- 🔐 JWT Authentication
+- 👤 User Registration & Login
+- 📋 Create, Read, Update & Delete Tasks
+- ✅ Mark Tasks as Completed or Pending
+- 🎯 Task Priority (Low, Medium, High)
+- 📅 Due Date Management
+- 🔍 Search & Filter Tasks
+- 📱 Fully Responsive UI
+- 🌙 Modern Dark Theme
+- ⚡ Fast React + Vite Frontend
+- ☁️ Cloud Database (MongoDB Atlas)
+- 🚀 Deployed on Vercel & Render
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js
+- Vite
+- Context API
+- CSS
+- Lucide React Icons
+
+### Backend
+- Node.js
+- Express.js
+- JWT Authentication
+- bcrypt.js
+
+### Database
+- MongoDB Atlas
+- Mongoose
+
+### Deployment
+- Frontend: Vercel
+- Backend: Render
+
+---
+
+## 📂 Project Structure
+
+```
+FocusFlow
+│
+├── frontend
+│   ├── src
+│   ├── public
+│   └── package.json
+│
+├── backend
+│   ├── config
+│   ├── controllers
+│   ├── middleware
+│   ├── models
+│   ├── routes
+│   ├── app.js
+│   ├── server.js
+│   └── package.json
+│
+└── README.md
 ```
 
 ---
 
-## Local Setup & Development
+## ⚙️ Installation
 
-### 1. Prerequisites
-- **Node.js** installed (v16+ recommended).
-- **MongoDB Database**: The database connection string is already configured in the `backend/.env` file.
+### Clone Repository
 
-### 2. Launch the Backend Server
-1. Navigate into the backend directory:
-   ```bash
-   cd backend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server (runs nodemon on port `5000`):
-   ```bash
-   npm run dev
-   ```
-
-You should see:
-```text
-Server running on 5000
-MongoDB Connected
+```bash
+git clone https://github.com/yourusername/focusflow.git
 ```
 
-### 3. Launch the React Frontend
-1. Open a new terminal window and navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the Vite development server:
-   ```bash
-   npm run dev
-   ```
-
-Open your browser and navigate to the local server URL (usually `http://localhost:5173/`).
+```bash
+cd focusflow
+```
 
 ---
 
-## REST API Reference
+### Backend Setup
 
-All requests and responses use JSON formatting. The base URL for local development is `http://localhost:5000/api/tasks`.
+```bash
+cd backend
+```
 
-| Method | Endpoint | Description | Query Parameters |
-|:---|:---|:---|:---|
-| **GET** | `/api/tasks` | Get all tasks | `search` (text matching title/desc)<br>`status` (`pending`, `in-progress`, `completed`)<br>`priority` (`low`, `medium`, `high`)<br>`sortBy` (`createdAt`, `dueDate`, `title`, `priority`)<br>`order` (`asc`, `desc`) |
-| **GET** | `/api/tasks/:id` | Get a specific task by ID | None |
-| **POST** | `/api/tasks` | Create a new task | JSON body: `title` (required, min 3 chars), `description`, `status`, `priority`, `dueDate` (required) |
-| **PUT** | `/api/tasks/:id` | Update an existing task | JSON body of fields to update |
-| **DELETE** | `/api/tasks/:id` | Delete a task | None |
+Install dependencies
+
+```bash
+npm install
+```
+
+Create a `.env`
+
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+```
+
+Run backend
+
+```bash
+npm start
+```
 
 ---
 
-## Public Deployment Guide
+### Frontend Setup
 
-Deploy the application live on the web by following these steps.
+```bash
+cd frontend
+```
 
-### Step 1: Deploy the Backend on Render
-1. Sign up on [Render](https://render.com/) and click **New > Web Service**.
-2. Connect your Git repository.
-3. Configure the service settings:
-   - **Root Directory**: `backend`
-   - **Environment**: `Node`
-   - **Build Command**: `npm install`
-   - **Start Command**: `node server.js`
-4. Add the following **Environment Variables** in Render's dashboard:
-   - `PORT`: `10000` (or leave default, Render sets it)
-   - `MONGO_URI`: *[Copy your connection string from `backend/.env`]*
-5. Click **Create Web Service**. Once deployed, copy your web service URL (e.g. `https://task-tracker-backend.onrender.com`).
+Install dependencies
 
-### Step 2: Deploy the Frontend on Vercel
-1. Sign up on [Vercel](https://vercel.com/) and click **Add New > Project**.
-2. Connect your Git repository.
-3. Configure the project settings:
-   - **Root Directory**: `frontend`
-   - **Framework Preset**: `Vite`
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `dist`
-4. Add the following **Environment Variable** in Vercel's dashboard:
-   - `VITE_API_URL`: *[Paste your Render Backend URL from Step 1, e.g., `https://task-tracker-backend.onrender.com`]*
-5. Click **Deploy**. Vercel will build and provide a public HTTPS link for your task tracker application.
+```bash
+npm install
+```
+
+Create `.env`
+
+```env
+VITE_API_URL=http://localhost:5000/api
+```
+
+Run frontend
+
+```bash
+npm run dev
+```
+
+---
+
+## 🔗 API Endpoints
+
+### Authentication
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| POST | `/api/auth/register` | Register User |
+| POST | `/api/auth/login` | Login User |
+| GET | `/api/auth/me` | Get Logged User |
+
+### Tasks
+
+| Method | Endpoint |
+|---------|----------|
+| GET | `/api/tasks` |
+| POST | `/api/tasks` |
+| PUT | `/api/tasks/:id` |
+| DELETE | `/api/tasks/:id` |
+
+---
+
+## 📸 Screenshots
+
+### Login Page
+
+(Add Screenshot Here)
+
+### Dashboard
+
+(Add Screenshot Here)
+
+### Create Task
+
+(Add Screenshot Here)
+
+---
+
+## 🔒 Environment Variables
+
+Backend
+
+```env
+PORT=
+MONGO_URI=
+JWT_SECRET=
+```
+
+Frontend
+
+```env
+VITE_API_URL=
+```
+
+---
+
+## 🚀 Deployment
+
+### Frontend
+
+Hosted on **Vercel**
+
+### Backend
+
+Hosted on **Render**
+
+### Database
+
+Hosted on **MongoDB Atlas**
+
+---
+
+## 🎯 Future Improvements
+
+- Email Verification
+- Password Reset
+- Drag & Drop Tasks
+- Task Categories
+- Team Collaboration
+- Notifications
+- Calendar View
+- Analytics Dashboard
+
+---
+
+## 👨‍💻 Author
+
+**Himanshu Singh**
+
+GitHub: https://github.com/YOUR_GITHUB_USERNAME
+
+LinkedIn: https://linkedin.com/in/YOUR_LINKEDIN
+
+---
+
+## ⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
