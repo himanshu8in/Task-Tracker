@@ -232,9 +232,9 @@ Hosted on **MongoDB Atlas**
 
 **Himanshu Singh**
 
-GitHub: https://github.com/YOUR_GITHUB_USERNAME
+GitHub: https://github.com/himanshu8in
 
-LinkedIn: https://linkedin.com/in/YOUR_LINKEDIN
+LinkedIn: https://linkedin.com/in/himanshu8in
 
 ---
 
