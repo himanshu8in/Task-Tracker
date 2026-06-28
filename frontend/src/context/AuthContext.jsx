@@ -1,9 +1,8 @@
 import React, { createContext, useState, useEffect, useContext, useCallback } from "react";
 
 const AuthContext = createContext();
-
-const API_BASE = import.meta.env.VITE_API_URL;
-const AUTH_URL = `${API_BASE}/api/auth`;
+const API_BASE = "https://task-tracker-9nop.onrender.com/api";
+const AUTH_URL = `${API_BASE}/auth`;
 
 export const AuthProvider = ({ children, addToast }) => {
     const [user, setUser] = useState(null);
