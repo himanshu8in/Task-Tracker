@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect, useContext, useCallback } fr
 
 const AuthContext = createContext();
 
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_URL;
 const AUTH_URL = `${API_BASE}/api/auth`;
 
 export const AuthProvider = ({ children, addToast }) => {

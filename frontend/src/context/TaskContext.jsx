@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect, useContext, useCallback } fr
 
 const TaskContext = createContext();
 
-const API_BASE = import.meta.env.VITE_API_URL || "https://task-tracker-9nop.onrender.com/api";
+const API_BASE = import.meta.env.VITE_API_URL;
 const API_URL = `${API_BASE}/api/tasks`;
 
 export const TaskProvider = ({ children, token }) => {
