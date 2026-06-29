@@ -167,17 +167,11 @@ npm run dev
 
 ## 📸 Screenshots
 
-### Login Page
 
-(Add Screenshot Here)
 
-### Dashboard
-
-(Add Screenshot Here)
-
-### Create Task
-
-(Add Screenshot Here)
+<img width="1600" height="503" alt="focus3" src="https://github.com/user-attachments/assets/b08c3919-f48a-448f-8558-99b814f39273" />
+<img width="652" height="785" alt="focus2" src="https://github.com/user-attachments/assets/57beac07-cb69-4289-adb9-aa2c6c603d0e" />
+<img width="1600" height="911" alt="focus1" src="https://github.com/user-attachments/assets/88d2a4cd-77de-47a2-af91-c7a39d466148" />
 
 ---
 
